@@ -1,3 +1,4 @@
+
 /*
 SELECT
 FirstName,
@@ -43,7 +44,7 @@ total >
 (SELECT avg(total) from Invoice)
 ORDER BY 
 total
-*/
+
 
 SELECT 
 BillingCity,
@@ -52,4 +53,18 @@ round(AVG(total),2),
 FROM
 Invoice
 GROUP BY BillingCity
-Order BY BillingCity
+Order BY BillingCity 
+*/
+
+
+
+
+SELECT
+CustomerId,
+Company,
+Country,
+Address
+FROM
+Customer
+GROUP BY Country
+ORDER BY Company DESC;
