@@ -148,3 +148,25 @@ COUNT(CustomerId) AS NumberOfCustomers
  e.EmployeeId = SupportRepId
  Group BY  e.EmployeeId, e.FirstName, e.Lastname
  ORDER BY NumberOfCustomers DESC;
+
+
+ SELECT
+CustomerId, LastName
+FROM 
+Customer
+WHERE Lastname LIKE 'G%'
+*
+
+SELECT
+Composer
+FROM
+Track
+WHERE Composer = 'unavailable'
+ORDER BY Composer
+
+SELECT
+COUNT(BillingCity)
+FROM
+Invoice 
+WHERe BillingCity = 'Brussels'
+*/
