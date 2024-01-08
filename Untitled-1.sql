@@ -87,7 +87,7 @@ InvoiceLine
 ORDER BY 
 TrackId )
 
-*/
+
 --SQLite
 
 CREATE VIEW V_AVGTotal AS
@@ -95,3 +95,56 @@ SELECT
 round(avg(total),2) as [Average Total]
 FROM
 Invoice
+*/
+
+---Inserting, Updating, Deleting Data---
+
+INSERT INTO
+Artist (Name)
+VALUES('Test Artist1')
+
+
+UPDATE
+Artist 
+SET Name = 'New Test Artist'
+WHERE ArtistID = 277
+*/
+
+DELETE
+FROM
+Artist
+WHERE
+ArtistId = 277
+
+
+-- SQL Code Challenge
+SELECT 
+g.Name AS Genre,
+AVG(t.milliseconds) AS AverageDuration
+FROM 
+Track AS t
+INNER JOIN
+Genre AS g
+ON g.GENREID = t.GENREID
+GROUP BY g.Name
+LIMIT 5;
+
+
+SELECT 
+   c.CustomerID,
+   c.FirstName, c.LastName,
+   SUM(i.Total) AS TotalPurchaseAmount
+FROM
+   Customer с
+JOIN Invoice i ON c.CustomerId = i.CustomerId
+GROUP BY c.CustomerID, c.FirstName, c.LastName
+ORDER BY TotalPurchaseAmount DESC;
+
+SELECT 
+e.EmployeeId, e.FirstName, e.Lastname, 
+COUNT(CustomerId) AS NumberOfCustomers
+ From Employee e
+ JOIN Customer с ON
+ e.EmployeeId = SupportRepId
+ Group BY  e.EmployeeId, e.FirstName, e.Lastname
+ ORDER BY NumberOfCustomers DESC;
